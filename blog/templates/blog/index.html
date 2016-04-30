@@ -1,0 +1,67 @@
+{% extends "./blog/base.html" %}
+
+{%block main%}
+<style type="text/css">
+    .filetext{
+        color:#ffffff;
+        font-size: 14px;
+        background-color: #000000;
+        width:100px;
+        height:35px;
+        padding: 5px;
+        margin: 50px;
+    }
+</style>
+<div class="container">
+<div class="row" style="margin-top:80px ">
+    <div class="col-md-4" style="text-align: center;">
+        <span class="filetext">File Compare</span>
+        <br /><br />
+
+        <button class="btn" style="background-color:#ff0000;color:#ffffff" onClick="preview()">
+                <span class="glyphicon glyphicon-search"></span>search
+            </button>
+
+        <div>
+            <form style="margin-top: 15px;">
+                <select name="dataset">
+                <option selected value="all">All Models</option>
+                <option  value="web">Free Web Models</option>
+                <option  value="viewpoint">Viewpoint Models</option>
+                <option  value="espona">De Espona Models</option>
+                <option  value="cacheforce">CacheForce Models</option>
+                </select>
+            </form>
+        </div>
+        <br />
+        <div align=center style="color: #d9534f">Specify local file to compare: &nbsp;&nbsp;
+            <input style="color: #0000cc; background: #ffffff;" type="file" name="modelfile" value="(local file)" size=15>
+            <input type="hidden" name="input" value="file">
+            <input type="hidden" name="method" value="harmonic">
+        </div>
+        <button id="up" class="btn" style="background-color:#008fd8;color:#ffffff" onClick="preview2()">上传</button>
+     </div>
+
+    <!-- 右边的widgets -->
+    <div id="vmaig-side" class="col-md-8 " style="text-align: left;"  name="result">
+
+        <iframe id="aaa" src="blog/frame"  width="800" height="800"></iframe>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script language="JavaScript">
+function preview()
+{
+   document.getElementById('aaa').src="blog/frame2";
+}
+function preview2()
+{
+   document.getElementById('aaa').src="blog/frame3";
+}
+</script>
+
+{% endblock %}
